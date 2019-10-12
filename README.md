@@ -1,0 +1,2 @@
+# AndroidWebMysql
+Android通过web与后台服务器的mysql进行交互
