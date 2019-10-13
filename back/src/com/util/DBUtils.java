@@ -9,8 +9,8 @@ public class DBUtils {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://127.0.0.1:3306/userinfo";
-            String usename = "root";
-            String password = "int lcxal = -1";
+            String usename = "用户名";
+            String password = "密码";
             connection = DriverManager.getConnection(url,usename,password);
         }
         catch (Exception e)
@@ -35,4 +35,3 @@ public class DBUtils {
         }
     }
 }
-
