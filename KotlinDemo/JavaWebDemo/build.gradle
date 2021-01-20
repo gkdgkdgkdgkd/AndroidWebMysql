@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'war'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.7.0' as Object
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+    implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10')
+    compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
+    implementation('mysql:mysql-connector-java:8.0.23')
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.12.1')
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
