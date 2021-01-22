@@ -14,13 +14,13 @@ import java.io.IOException;
 @WebServlet("/sign/up")
 public class SignUp extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("application/json;charset=utf-8");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json;charset=utf-8");
 
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");
         Dao dao = new Dao();
         User user = new User(name,password);
         ResponseBody body = new ResponseBody();
@@ -32,6 +32,6 @@ public class SignUp extends HttpServlet {
             body.setCode(500);
             body.setData("failed");
         }
-        mapper.writeValue(response.getWriter(), body);
+        mapper.writeValue(resp.getWriter(), body);
     }
 }

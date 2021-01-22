@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet("/test")
 public class Test extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().print("Hello, Java Web");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.getWriter().print("Hello, Java Web");
     }
 }
