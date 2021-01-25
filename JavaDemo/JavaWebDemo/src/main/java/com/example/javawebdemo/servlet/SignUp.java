@@ -22,7 +22,7 @@ public class SignUp extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
         Dao dao = new Dao();
-        User user = new User(name,password);
+        User user = new User(name, password);
         ResponseBody body = new ResponseBody();
         ObjectMapper mapper = new ObjectMapper();
         if (dao.insert(user)) {

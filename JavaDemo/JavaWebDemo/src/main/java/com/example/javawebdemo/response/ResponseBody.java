@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class ResponseBody{
+public class ResponseBody {
     private Object data;
     private int code;
 }

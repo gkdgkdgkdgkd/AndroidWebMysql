@@ -23,7 +23,7 @@ public class SignIn extends HttpServlet {
         String password = req.getParameter("password");
 
         Dao dao = new Dao();
-        User user = new User(name,password);
+        User user = new User(name, password);
         ObjectMapper mapper = new ObjectMapper();
         ResponseBody body = new ResponseBody();
 
