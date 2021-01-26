@@ -19,17 +19,17 @@ public class NetworkThread implements Callable<String> {
     }
 
     @Override
-    public String call(){
+    public String call() {
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-            String data = "name="+ URLEncoder.encode(name, StandardCharsets.UTF_8.toString())+"&password="+URLEncoder.encode(password,StandardCharsets.UTF_8.toString());
+            String data = "name=" + URLEncoder.encode(name, StandardCharsets.UTF_8.toString()) + "&password=" + URLEncoder.encode(password, StandardCharsets.UTF_8.toString());
             connection.setRequestMethod("POST");
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.getOutputStream().write(data.getBytes(StandardCharsets.UTF_8));
-            byte [] bytes = new byte[1024];
+            byte[] bytes = new byte[1024];
             int len = connection.getInputStream().read(bytes);
-            return new String(bytes,0,len,StandardCharsets.UTF_8);
+            return new String(bytes, 0, len, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
             return "";

@@ -19,30 +19,38 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun signIn(view:View) {
+    fun signIn(view: View) {
         val name = binding.editTextName.text.toString()
         val password = binding.editTextPassword.text.toString()
-        val signInTask = FutureTask(NetworkThread(name,password,NetworkSettings.SIGN_IN))
+        val signInTask = FutureTask(NetworkThread(name, password, NetworkSettings.SIGN_IN))
         val thread = Thread(signInTask)
         thread.start()
-        try{
-            val body = mapper.readValue(signInTask.get(),ResponseBody::class.java)
-            Toast.makeText(applicationContext,if (body.code == 200) "登录成功" else "登录失败",Toast.LENGTH_SHORT).show()
-        }catch (e:Exception){
+        try {
+            val body = mapper.readValue(signInTask.get(), ResponseBody::class.java)
+            Toast.makeText(
+                applicationContext,
+                if (body.code == 200) "登录成功" else "登录失败",
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    fun signUp(view:View) {
+    fun signUp(view: View) {
         val name = binding.editTextName.text.toString()
         val password = binding.editTextPassword.text.toString()
-        val signUpTask = FutureTask(NetworkThread(name,password,NetworkSettings.SIGN_UP))
+        val signUpTask = FutureTask(NetworkThread(name, password, NetworkSettings.SIGN_UP))
         val thread = Thread(signUpTask)
         thread.start()
-        try{
-            val body = mapper.readValue(signUpTask.get(),ResponseBody::class.java)
-            Toast.makeText(applicationContext,if (body.code == 200) "注册成功" else "注册失败",Toast.LENGTH_SHORT).show()
-        }catch (e:Exception){
+        try {
+            val body = mapper.readValue(signUpTask.get(), ResponseBody::class.java)
+            Toast.makeText(
+                applicationContext,
+                if (body.code == 200) "注册成功" else "注册失败",
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
