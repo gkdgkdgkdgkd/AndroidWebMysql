@@ -3,6 +3,8 @@
 # 这是什么？
 一个简单的登录注册Demo，基于`Java Web` + `Android` + `MySQL` + `Tomcat`。没有使用其他框架。
 
+提供了两种语言实现，`Java`+`Kotlin`。
+
 更详细的介绍请看[笔者的博客](https://blog.csdn.net/qq_27525611/article/details/112745084).
 
 欢迎star!
