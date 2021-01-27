@@ -1,5 +1,7 @@
 中文 | [English](https://github.com/2293736867/AndroidWebMysql/blob/old/README_en.md)
 
+# 这是一个旧版本分支，请切换到最新分支`main`
+
 # 这是什么？
 一个简单的登录注册Demo，基于`Java Web` + `Android` + `MySQL` + `Tomcat`。没有使用其他框架。
 
